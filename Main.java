@@ -1,19 +1,40 @@
 class Main {
   public static void main(String[] args) {
-   // kindly use appropriate data types for your declaration
-   //declare an array variable and assign the days of the month debtor defaulted,
-   
-   // declare variables of amount the debtor is to pay per day, and amount the debtor paid and assign values to them
-   
-   // declare all the variables needed for your calculations
-
-   // calculate and print total amount the debtor is to pay using for each loop
-
-   // calculate the days the debtor paid for and print the days in which was paid for starting from the left to the right of the array. Also check if there was a day that the debtor did not pay the complete amount for that day, if yes, print the day and the amount left to pay for that day. 
-
-   // calculate amount the debtor is left to pay if he did not pay complete fees and the days not paid for or  check if the debtor paid extra and the extra amount he paid for, or if he paid the exact amount needed to be paid and print likewise
-
-   //kindly remove the statement below when you are done with the assignment
-    System.out.println("Hello world!");
+   byte[] daysDefaulted = {1};
+   float payperday=700j,amountpaid=2000j;
+   float totalamount=0j;
+   byte  amountofdays=0; 
+   float temp=amountpaid;
+   byte dayspaidfor= 0;
+   float remainttopay;
+   float excess;
+   for(byte i:daysDefaulted){
+     totalamount=totalamount+payperday;
+     amountofdays++;
+   }
+   System.out.println("Total amount to be paid is"+totalamount);
+   for(int i=0;i<amountofdays;i++){
+     if(temp>=payperday){
+       temp=temp-payperday;
+       dayspaidfor++;
+     }
+     else if(temp<payperday){
+       break;
+     }
+   }
+   for(int i=0;i<dayspaidfor;i++){
+     System.out.println(daysDefaulted[i]);
+   }
+   if(amountpaid%payperday>0&&amountpaid<totalamount){
+    System.out.println("Day not completely paid for is"+daysDefaulted[dayspaidfor]+" Amount left to complete it is"+(payperday-(amountpaid%payperday)));
+   }
+   if(amountpaid<totalamount){
+     remainttopay=totalamount-amountpaid;
+     System.out.println("Amount remaining to pay is"+excess);
+   }
+   else if(amountpaid>totalamount){
+     excess=amountpaid-totalamount;
+     System.out.println("You paid the exact amount");
+   }
   }
 }
